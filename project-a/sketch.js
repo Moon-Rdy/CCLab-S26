@@ -25,7 +25,7 @@ let away1 = 0.3; //change this to make it go further
 function setup() {
   let canvas = createCanvas(800, 500);
   canvas.parent("p5-canvas-container");
-  x = width / 2;
+  x = width/2;
   y = height / 2;
 }
 
