@@ -1,0 +1,94 @@
+<!-- 
+Template for IMA's Creative Coding Lab 
+
+Project A: Generative Creatures
+CCLaboratories Biodiversity Atlas 
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[ Taraxacum Aegis ]</title>
+
+    <!-- allow special characters, including Arabic, Chinese, Korean, Japanese, etc. -->
+    <meta charset="UTF-8">
+    <!-- link the style sheet -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- import p5.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
+    <script>
+        // prevent scrolling when spacebar and arrow keys are pressed.
+        window.addEventListener("keydown", function (e) { if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) { e.preventDefault(); } }, false);
+    </script>
+</head>
+
+<body>
+    <!-- title -->
+    <div id="title-wrapper">
+        <h1 class="headline black">Taraxacum Aegis</h1>
+    </div>
+
+    <!-- main content -->
+    <div id="main-wrapper">
+        <div id="p5-canvas-container">
+            <!-- This is where your p5 sketch will be appended and appear! -->
+        </div>
+        <div class="two-columns">
+            <div class="left">
+                <h3 class="red">Scientific Name:</h3>
+                <p>Taraxacum Seed</p>
+
+                <h3 class="red">Discovered by / at:</h3>
+                <p>A sculpture depicting flowers with hard and sharp metal materials</p>
+
+                <h3 class="green">Family:</h3>
+                <p>Digital wind-dispersed organisms</p>
+            </div>
+            <div class="right">
+                <h3 class="green">Habitat:</h3>
+                <p>Open digital voids with colorful and dynamic petals</p>
+
+                <h3 class="green">Appearance:</h3>
+                <p>A tiny glowing orb at its center, surrounded by three rings of outward-reaching filaments tipped with diamond-shaped ends — like a dandelion seed caught mid-flight</p>
+
+                <h3 class="green">Key Characteristics:</h3>
+                <ul>
+                    <li>Drifts in gentle looping orbits when undisturbed. </li>
+                    <li>Its core pulses softly like breathing. </li>
+                    <li>Three layers of arrows rotate at different speeds, each responding to invisible currents.</li>
+                    <li>Highly sensitive to nearby presences.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="one-column">
+            <p>
+                <span class="yellow">What we know so far about Taraxacum Seed?</span>
+                
+                It wanders freely across the void in smooth, elliptical paths, guided only by internal rhythm. No fixed destination. It seems content in solitude, its filaments slowly spinning as if reading the air around it.
+
+                <br>
+                <span class="yellow">Guidelines for human interaction with this creature</span>
+                
+                Clicking the creature triggers its escape response — it rapidly contracts and springs away from the cursor, shrinking its body and keeping a cautious distance from the perceived threat. While in this defensive state, it remains small and avoids the cursor. If the cursor approaches again, the creature expands and deploys its arrow-like filaments outward, appearing to attack or ward off the intruder. Only when the cursor retreats far enough does the creature gradually return to its normal size and resume its calm drifting motion.
+
+
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="black">
+        <p>A CCLab project made by [Your Name] in [Current Semester]</p>
+    </div>
+
+    <!-- Home: Link back to the ATLAS page-->
+    <div id="home">
+        <a href="https://cclab.work/atlas">Back to the ATLAS</a>
+    </div>
+
+    <!-- Include your sketch.js file here -->
+    <script src="sketch.js" type="text/javascript"> </script>
+</body>
+
+</html>
