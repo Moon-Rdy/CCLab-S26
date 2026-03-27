@@ -18,10 +18,6 @@ function draw() {
   dancer.display();
 }
 
-function mousePressed() {
-  dancer.jumpVal = -10;
-}
-
 // You only code inside this class.
 // Start by giving the dancer your name, e.g. LeonDancer.
 class Makabaka {
@@ -36,25 +32,28 @@ class Makabaka {
     this.jumpVal = 0;
     this.jumpY = 0;
     this.armLen = 36;
-  
+
   }
   update() {
     this.angle += 0.03;
     this.clap += 0.08;
-    
+
     this.r += 1;
     this.g += 1;
     this.b += 1;
-    if (this.r > 255){
+    if (this.r > 255) {
       this.r = random(100, 150);
     }
-    if (this.g > 255){
+    if (this.g > 255) {
       this.g = random(150, 200);
     }
-    if (this.r > 255){
+    if (this.r > 255) {
       this.b = random(100, 160);
     }
-    
+
+    if (mouseIsPressed) {
+      dancer.jumpVal = -10;
+    }
     this.jumpVal += 0.8;
     this.jumpY += this.jumpVal;
     if (this.jumpY >= 0) {
@@ -62,7 +61,7 @@ class Makabaka {
       this.jumpVal = 0;
     }
 
-    this.flashColor = [this.r, this.g,this.b];
+    this.flashColor = [this.r, this.g, this.b];
 
   }
   display() {
@@ -93,10 +92,6 @@ class Makabaka {
       side = -1;
     }
 
-    
-    
-    
-    
     let inAir = false;
     if (this.jumpY < -5) {
       inAir = true;
@@ -137,7 +132,6 @@ class Makabaka {
       fill(90, 70, 50);
       noStroke();
       ellipse(supportX, 65, 20, 10);
-
       // leg up
       let liftX = -side * 12;
       let liftLegAngle = side * 0.55; // 向外倾斜
@@ -251,17 +245,17 @@ class Makabaka {
       ellipse(rhx, rhy, 13, 13);
     }
     // clap light
-    
-    if (inAir == false){
-    if (clapClose > 0.88) {
-      let mx = (lhx + rhx) / 2;
-      let my = (lhy + rhy) / 2;
-      noStroke();
-      fill(this.flashColor, 150);
-      ellipse(mx, my, 26, 26);
-      fill(255, 255, 255, map(clapClose, 0.88, 1, 0, 100));
-      ellipse(mx, my, 14, 14);
-    }
+
+    if (inAir == false) {
+      if (clapClose > 0.88) {
+        let mx = (lhx + rhx) / 2;
+        let my = (lhy + rhy) / 2;
+        noStroke();
+        fill(this.flashColor, 150);
+        ellipse(mx, my, 26, 26);
+        fill(255, 255, 255, map(clapClose, 0.88, 1, 0, 100));
+        ellipse(mx, my, 14, 14);
+      }
     }
 
     // ⬆️ draw your dancer above ⬆️
