@@ -7,9 +7,11 @@ class Walker {
     this.targetW = 0;
     this.stage = 0;
     this.i = 0;
+    this.previ = 0;
   }
 
   update() {
+    this.previ = this.i;
     if (this.stage == 1 && this.i < 90) {
       this.i += 1;
     }
@@ -36,12 +38,15 @@ class Walker {
     push();
     translate(x1, y1, z1);
     scale(0.2);
-    rotateZ(p.angle);
+    // rotateZ(p.angle);
     rotateZ(p.twist);
     rotateX(p.twist);
-    rotateX(-0.5 * PI);
-    
+    // rotateZ(-rotateAn);
+    rotateX(-PI / 2.5);
+
     translate(0, -220, 0);
+    let breathe = sin(frameCount * 0.03) * 3;
+    translate(0, breathe, 0);
 
     //test
     // noStroke();
@@ -51,41 +56,97 @@ class Walker {
     noStroke();
     // dress
     fill(232, 232, 224);
-    quad(-8, -57, 21, -55, 110, 110, -85, 90);
+    if (this.i != this.previ) {
+      quad(-8, -57, 21, -55, 150, 110, -70, 65);
+    } else {
+      quad(-8, -57, 21, -55, 100, 110, -85, 65);
+    }
 
+    let legSwing;
+    if (this.previ != this.i) {
+      legSwing = sin(frameCount * 0.15) * 0.3;
+    } else {
+      legSwing = sin(frameCount * 0.01) * 0.03;
+    }
+
+    fill(230, 225, 215);
     // legs
-    rect(-30, 90, 20, 105, 8);
-    rect(25, 100, 20, 105, 8);
+    push();
+    translate(-20, 90, 0);
+    rotate(legSwing);
+    rect(0, 0, 15, 105, 8);
+    pop();
+    push();
+    translate(20, 100, 0);
+    rotate(-legSwing);
+    rect(0, 0, 15, 105, 8);
+    pop();
 
     // feet
     push();
-    translate(-22, 205);
+    translate(-20, 90, 0);
+    rotate(legSwing);
+    translate(0, 105, 0);
     rotate(-PI / 5);
-    ellipse(0, 0, 36, 20);
+    ellipse(7, 0, 30, 20);
     pop();
-
     push();
-    translate(17, 210);
+    translate(20, 100, 0);
+    rotate(-legSwing);
+    translate(0, 105, 0);
     rotate(-PI / 5);
-    ellipse(0, 0, 36, 20);
+    ellipse(7, 0, 30, 20);
     pop();
 
-    // neck
-    fill(26, 26, 26);
-    rect(-10, -90, 32, 43, 18);
+    // // neck
+    // push();
+    // translate(0, 0, 1);
+    // fill(26, 26, 26);
+    // rect(-10, -90, 32, 43, 18);
+    // pop();
+
+    let capeColor;
+if (this.stage == 0 || this.stage == 1) {
+  capeColor = color(200, 130, 100);
+} else if (this.stage == 2) {
+  capeColor = color(130, 145, 205);
+} else if (this.stage == 3) {
+  capeColor = color(90, 95, 110);
+}
+
+    fill(capeColor);
+    quad(-15, -80, 28, -80, 70, -35, -45, -35);
+
+    let headX = map(mouseX, 0, width, -0.5, 0.25);
+    let headY = map(mouseY, 0, height, -0.1, 0.15);
 
     // hat
+    push();
+    translate(0, 0, 0);
+    rotateY(headX);
+    rotateX(headY);
     fill(232, 232, 224);
     triangle(-10, -184, 35, -89, 130, -250);
+    pop();
 
     // head black
+    push();
+    translate(0, 0, 1);
+    rotateY(headX);
+    rotateX(headY);
     fill(26, 26, 26);
-    ellipse(0, -130, 104, 110);
+    ellipse(0, -130, 90, 96);
+    pop();
 
     // head white
+    push();
+    translate(0, 0, 2);
+    rotateY(headX);
+    rotateX(headY);
     fill(232, 232, 224);
-    ellipse(-10, -125, 80, 90);
-    ellipse(-12, -125, 80, 95);
+    ellipse(-10, -120, 66, 80);
+    ellipse(-12, -120, 66, 85);
+    pop();
 
     pop();
   }

@@ -2,6 +2,7 @@ let M;
 let preStage = 0;
 let i = 0;
 let stage = 0;
+// let rotateAn = 0;
 
 function setup() {
   createCanvas(850, 750, WEBGL);
@@ -10,10 +11,11 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(18, 15, 12);
 
   rotateX(PI / 2.5);
-  rotateZ(frameCount * 0.0001);
+  // rotateAn += 0.0001;
+  // rotateZ(rotateAn);
 
   M.displayMobius();
   W.update();
@@ -26,19 +28,16 @@ function draw() {
     preStage = 2;
   }
   if (W.i == 500) {
-    preStage = 0;
-    stage = 0;
-    W.stage = 0;
-    W.i = 0;
+    preStage = 3;
   }
   
   // console.log(W.i);
   // console.log(stage);
   console.log(W.stage);
-  
 }
 
-  function mousePressed() {
+
+function mousePressed() {
     if (stage == 0 && preStage == 0) {
       stage = 1;
       W.stage = 1;
@@ -50,5 +49,10 @@ function draw() {
       W.i = 400;
       stage = 3;
       W.stage = 3;
+    } else if (preStage == 3 && W.i == 500){
+      W.i = 0;
+      stage = 0;
+      W.stage = 0;
+      preStage = 0;
     }
   }
