@@ -1,5 +1,6 @@
 class Walker {
-  constructor() {
+  constructor(mobius) {
+    this.mobius = mobius;
     this.x1 = 0;
     this.y1 = 0;
     this.z1 = 0;
