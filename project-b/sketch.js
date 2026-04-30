@@ -22,7 +22,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(850, 700, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas.id("p5-canvas");
+  canvas.parent("p5-canvas-container");
 
   video = createCapture(VIDEO);
   video.size(850, 700);
