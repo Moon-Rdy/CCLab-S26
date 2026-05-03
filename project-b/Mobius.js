@@ -2,7 +2,7 @@ class Mobius {
   
   constructor() {
     this.points = [];
-    this.numSegments = 600;
+    this.numSegments = 1200;
     this.r = 300;
     this.rWidth = 50;
 
@@ -59,10 +59,12 @@ class Mobius {
       //let y2b = p2.y0 - ny2 * this.rWidth;
       //let z2b = p2.z0 - nz2 * this.rWidth;
 
-      if (i % 2 == 0) {
+      if (i % 4 == 0) {
         stroke(150);
-      } else {
+      } else if(i % 2 == 0){
         stroke(80);
+      }else {
+        stroke(0);
       }
       //horizontal
       beginShape();

@@ -20,45 +20,61 @@ class Guide {
   draw() {
     noStroke();
 
-    let a = map(sin(frameCount * 0.1), -1, 1, 80, 230);
+    let a = map(sin(frameCount * 0.07), -1, 1, 130, 180);
 
     push();
     rotateX(PI / -2.5);
 
     if (this.guideState == 0) {
-      fill(255, 200, 80, a);
+      fill(255, 255, 0, a);
     } else {
-      fill(255, 200, 80, 0);
+      fill(255, 255, 0, 0);
     }
-    circle(width / 2 - 30, -height / 2 + 30, 10);
+    // circle(width / 2 - 30, -height / 2 + 30, 30);
+    triangle(width/2-60, -height/2+50, width/2-50, -height/2+80, width/2-40, -height/2+50);
+    triangle(width/2-50, -height/2+60, width/2-20, -height/2+50, width/2-50, -height/2+40);
+    triangle(width/2-60, -height/2+50, width/2-50, -height/2+20, width/2-40, -height/2+50);
+    triangle(width/2-50, -height/2+60, width/2-80, -height/2+50, width/2-50, -height/2+40);
 
     if (this.guideState == 1) {
-      fill(255, 200, 80, a);
+      fill(255, 255, 0, a);
     } else {
-      fill(255, 200, 80, 0);
+      fill(255, 255, 0, 0);
     }
-    circle(width / 2 - 30, height / 2 - 30, 10);
+    triangle(width/2-60, height/2-50, width/2-50, height/2-80, width/2-40, height/2-50);
+    triangle(width/2-50, height/2-60, width/2-20, height/2-50, width/2-50, height/2-40);
+    triangle(width/2-60, height/2-50, width/2-50, height/2-20, width/2-40, height/2-50);
+    triangle(width/2-50, height/2-60, width/2-80, height/2-50, width/2-50, height/2-40);
 
     if (this.guideState == 1.5) {
-      fill(255, 200, 80, a);
+      fill(255, 255, 0, a);
     } else {
-      fill(255, 200, 80, 0);
+      fill(255, 255, 0, 0);
     }
-    circle(-width / 2 + 30, height / 2 - 30, 10);
+    triangle(-width/2+60, height/2-50, -width/2+50, height/2-80, -width/2+40, height/2-50);
+    triangle(-width/2+50, height/2-60, -width/2+20, height/2-50, -width/2+50, height/2-40);
+    triangle(-width/2+60, height/2-50, -width/2+50, height/2-20, -width/2+40, height/2-50);
+    triangle(-width/2+50, height/2-60, -width/2+80, height/2-50, -width/2+50, height/2-40);
 
     if (this.guideState == 2) {
-      fill(255, 200, 80, a);
+      fill(255, 255, 0, a);
     } else {
-      fill(255, 200, 80, 0);
+      fill(255, 255, 0, 0);
     }
-    circle(-width / 2 + 30, -height / 2 + 30, 10);
+    triangle(-width/2+60, -height/2+50, -width/2+50, -height/2+80, -width/2+40, -height/2+50);
+    triangle(-width/2+50, -height/2+60, -width/2+20, -height/2+50, -width/2+50, -height/2+40);
+    triangle(-width/2+60, -height/2+50, -width/2+50, -height/2+20, -width/2+40, -height/2+50);
+    triangle(-width/2+50, -height/2+60, -width/2+80, -height/2+50, -width/2+50, -height/2+40);
 
     if (this.guideState == 3) {
-      fill(255, 200, 80, a);
+      fill(255, 255, 0, a);
     } else {
-      fill(255, 200, 80, 0);
+      fill(255, 255, 0, 0);
     }
-    circle(width / 2 - 30, -height / 2 + 30, 10);
+    triangle(width/2-60, -height/2+50, width/2-50, -height/2+80, width/2-40, -height/2+50);
+    triangle(width/2-50, -height/2+60, width/2-20, -height/2+50, width/2-50, -height/2+40);
+    triangle(width/2-60, -height/2+50, width/2-50, -height/2+20, width/2-40, -height/2+50);
+    triangle(width/2-50, -height/2+60, width/2-80, -height/2+50, width/2-50, -height/2+40);
 
     pop();
 
@@ -66,7 +82,7 @@ class Guide {
     push();
     translate(0, height / 2 + 80, 0);
     rotateX(PI/-2.5);
-    fill(255, 240, 240, 200);
+    fill(255, 250, 250, 200);
     noStroke();
     textSize(10);
     textAlign(CENTER);

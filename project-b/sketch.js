@@ -26,8 +26,9 @@ function setup() {
   canvas.id("p5-canvas");
   canvas.parent("p5-canvas-container");
 
+
   video = createCapture(VIDEO);
-  video.size(850, 700);
+  video.size(windowWidth, windowHeight);
   video.hide();
   handPose.detectStart(video, gotHands);
 
@@ -56,16 +57,16 @@ function draw() {
   G.update(stage, preStage);
   G.draw();
 
-  if (W.i == 50) {
+  if (W.i == 100) {
     preStage = 1;
   }
-  if (W.i == 90) {
+  if (W.i == 180) {
     preStage = 1.5;
   }
-  if (W.i == 300) {
+  if (W.i == 600) {
     preStage = 2;
   }
-  if (W.i == 500) {
+  if (W.i == 1000) {
     preStage = 3;
   }
 
@@ -80,9 +81,27 @@ function draw() {
     let hand = hands[i];
     p1 = hand.keypoints[9];
     detectHand();
-    // fill(0, 255, 0);
-    // circle(p1.x, p1.y, 20);
-    // console.log(p1.x);
+    // fill(250, 250, 250);
+    // circle(p1.x, p1.y, 20, 50);
+
+    //blob
+
+    // stroke(255);
+    noFill();
+    fill(255, 250, 50, 80);
+    // beginShape();
+    // for(let i=0; i< 20; i++){
+    //   let angle = map(i, 0, 20, 0, 2*PI);
+    //   let offset = map(i, 0, 20, 0, 5*PI);
+    //   let r = 10 + 2*sin(frameCount*0.1 + offset);
+    //   let x = p1.x+ r*cos(angle);
+    //   let y = p1.y+ r*sin(angle);
+    //   curveVertex(x, y);
+    // }
+    // endShape(CLOSE);
+    circle(p1.x, p1.y, 50);
+
+    console.log(p1.x);
     // console.log(p1.y);
   }
 
@@ -93,9 +112,9 @@ function detectHand() {
   if (
     stage == 0 &&
     preStage == 0 &&
-    width - p1.x > width / 2 &&
+    width - p1.x > width - 50 &&
     width - p1.x < width &&
-    p1.y < height / 2
+    p1.y < 50
   ) {
     if (stage == 0 && preStage == 0) {
       stage = 1;
@@ -103,36 +122,32 @@ function detectHand() {
       T.stage = 1;
     }
   } else if (
-    width - p1.x > width / 2 + 50 &&
+    width - p1.x > width - 50 &&
     width - p1.x < width &&
-    p1.y > height / 2 + 50 &&
+    p1.y > height - 50 &&
     p1.y < height
   ) {
-    if (stage == 1 && preStage == 1 && W.i == 50) {
+    if (stage == 1 && preStage == 1 && W.i == 100) {
       W.flip = -1 * W.flip;
       T.stage = 1.5;
       stage = 1.5;
       W.stage = 1.5;
     }
-  } else if (
-    width - p1.x < width / 2 &&
-    p1.y > height / 2 + 50 &&
-    p1.y < height
-  ) {
-    if (stage == 1.5 && preStage == 1.5 && W.i == 90) {
-      W.i = 200;
+  } else if (width - p1.x < 50 && p1.y > height - 50 && p1.y < height) {
+    if (stage == 1.5 && preStage == 1.5 && W.i == 180) {
+      W.i = 400;
       stage = 2;
       W.stage = 2;
       T.stage = 2;
     }
-  } else if (width - p1.x < width / 2 && p1.y < height / 2) {
-    if (stage == 2 && preStage == 2 && W.i == 300) {
-      W.i = 400;
+  } else if (width - p1.x < 50 && p1.y < 50) {
+    if (stage == 2 && preStage == 2 && W.i == 600) {
+      W.i = 800;
       stage = 3;
       W.stage = 3;
       T.stage = 3;
     }
-  } else if (preStage == 3 && W.i == 500) {
+  } else if (preStage == 3 && W.i == 1000) {
     W.i = 0;
     stage = 0;
     W.stage = 0;

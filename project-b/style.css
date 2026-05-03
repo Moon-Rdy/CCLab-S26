@@ -4,7 +4,9 @@ html, body {
   overflow: hidden;
   background: black;
 
-  display: flex;
+  display: fixed;
+  top: 0;
+  left: 0;
   justify-content: center;
   align-items: center;
   height: 100vh;

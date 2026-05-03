@@ -12,16 +12,16 @@ class Walker {
 
   update() {
     this.previ = this.i;
-    if (this.stage == 1 && this.i < 50) {
+    if (this.stage == 1 && this.i < 100) {
       this.i += 1;
     }
-    if (this.stage == 1.5 && this.i < 90) {
+    if (this.stage == 1.5 && this.i < 180) {
       this.i += 1;
     }
-    if (this.stage == 2 && this.i < 300) {
+    if (this.stage == 2 && this.i < 600) {
       this.i += 1;
     }
-    if (this.stage == 3 && this.i < 500) {
+    if (this.stage == 3 && this.i < 1000) {
       this.i += 1;
     }
   }
@@ -117,13 +117,6 @@ class Walker {
     rotate(-PI / 5);
     ellipse(7, 0, 30, 20);
     pop();
-
-    // // neck
-    // push();
-    // translate(0, 0, 1);
-    // fill(26, 26, 26);
-    // rect(-10, -90, 32, 43, 18);
-    // pop();
 
     let capeColor;
     if (this.stage == 0 || this.stage == 1) {
