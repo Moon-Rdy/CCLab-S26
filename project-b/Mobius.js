@@ -3,8 +3,8 @@ class Mobius {
   constructor() {
     this.points = [];
     this.numSegments = 1200;
-    this.r = 300;
-    this.rWidth = 50;
+    this.r = 400;
+    this.rWidth = 60;
 
     this.drawMobius();
   }
