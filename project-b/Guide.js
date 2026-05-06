@@ -80,7 +80,7 @@ class Guide {
 
     // text
     push();
-    translate(0, height - 400, 0);
+    translate(0, height - 300, 0);
     rotateX(PI/-2.5);
     fill(255, 250, 250, 200);
     noStroke();
