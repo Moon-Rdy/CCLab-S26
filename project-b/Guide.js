@@ -80,11 +80,11 @@ class Guide {
 
     // text
     push();
-    translate(0, height / 2 + 50, 0);
+    translate(0, height - 50, 0);
     rotateX(PI/-2.5);
     fill(255, 250, 250, 200);
     noStroke();
-    textSize(10);
+    textSize(7);
     textAlign(CENTER);
     textFont(font);
     text("follow the light with your hand", 0, 0);
