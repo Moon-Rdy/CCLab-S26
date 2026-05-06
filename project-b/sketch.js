@@ -23,10 +23,10 @@ function preload() {
   font = loadFont(
     "https://cdnjs.cloudflare.com/ajax/libs/topcoat/0.8.0/font/SourceCodePro-Regular.otf"
   );
-  sound1 = loadSound("audio/1.m4a");
-  sound2 = loadSound("audio/2.m4a");
-  sound3 = loadSound("audio/3.m4a");
-  sound4 = loadSound("audio/4.m4a");
+  sound1 = loadSound("audio/1.mp3");
+  sound2 = loadSound("audio/2.mp3");
+  sound3 = loadSound("audio/3.mp3");
+  sound4 = loadSound("audio/4.mp3");
 }
 
 function setup() {
