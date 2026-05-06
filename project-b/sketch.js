@@ -30,10 +30,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 800, WEBGL);
+  createCanvas(1200, 950, WEBGL);
 
   video = createCapture(VIDEO);
-  video.size(1000, 800);
+  video.size(1200, 950);
   video.hide();
   handPose.detectStart(video, gotHands);
 
