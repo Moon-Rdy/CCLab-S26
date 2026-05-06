@@ -22,13 +22,13 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(1920, 1020, WEBGL);
+  let canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.id("p5-canvas");
   canvas.parent("p5-canvas-container");
 
 
   video = createCapture(VIDEO);
-  video.size(width, height);
+  video.size(windowWidth, windowHeight);
   video.hide();
   handPose.detectStart(video, gotHands);
 
