@@ -164,10 +164,10 @@ function detectHand() {
     p1.y < height*0.5
   ) {
     if (stage == 0 && preStage == 0) {
+      sound1.play();
       stage = 1;
       W.stage = 1;
       T.stage = 1;
-      sound1.play();
     }
   } else if (
    p1.x > width*0.17 &&
@@ -176,27 +176,27 @@ function detectHand() {
     p1.y < height*0.51
   ) {
     if (stage == 1 && preStage == 1 && W.i == 100) {
+      sound2.play();
       W.flip = -1 * W.flip;
       T.stage = 1.5;
       stage = 1.5;
       W.stage = 1.5;
-      sound2.play();
     }
   } else if (p1.x > width*0.24 && p1.x < width*0.27 && p1.y > height*0.71 && p1.y < height*0.78) {
     if (stage == 1.5 && preStage == 1.5 && W.i == 180) {
+      sound3.play();
       W.i = 400;
       stage = 2;
       W.stage = 2;
       T.stage = 2;
-      sound3.play();
     }
   } else if (p1.x > width*0.82 && p1.x < width*0.87 && p1.y > height*0.36 && p1.y < height*0.44) {
     if (stage == 2 && preStage == 2 && W.i == 600) {
+      sound4.play();
       W.i = 800;
       stage = 3;
       W.stage = 3;
       T.stage = 3;
-      sound4.play();
     }
   } else if (preStage == 3 && W.i == 1000) {
     W.i = 0;
