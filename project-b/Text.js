@@ -22,8 +22,8 @@ class Text {
     this.t += 0.02;
 
     if (this.stage == 0) {
-      this.sdOpa = map(sin(this.t), -1, 1, 10, 30);
-      this.qqOpa = map(sin(this.t * 0.8), -1, 1, 10, 30);
+      this.sdOpa = map(sin(this.t), -1, 1, 10, 15);
+      this.qqOpa = map(sin(this.t * 0.8), -1, 1, 10, 15);
     } else if (this.stage == 1) {
       this.sdOpa = lerp(this.sdOpa, map(sin(this.t), -1, 1, 180, 255), 0.01);
       this.qqOpa = lerp(this.qqOpa,map(sin(this.t * 0.8), -1, 1, 30, 70),0.01);
