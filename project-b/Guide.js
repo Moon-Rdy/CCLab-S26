@@ -90,7 +90,7 @@ class Guide {
     textSize(7);
     textAlign(CENTER);
     textFont(font);
-    text("follow the light with your hand", 0, 0);
+    text("follow Ida with your hand", 0, 0);
     pop();
   }
 }

@@ -30,10 +30,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  createCanvas(1400, 950, WEBGL);
 
   video = createCapture(VIDEO);
-  video.size(windowWidth, windowHeight);
+  video.size(1200, 950);
   video.hide();
   handPose.detectStart(video, gotHands);
 
@@ -132,11 +132,11 @@ function draw() {
     detectHand();
     noFill();
     fill(255, 250, 50, 80);
-    circle(p1.x, p1.y, 30);
-    // triangle(p1.x-30, p1.y+25, p1.x-25, p1.y+40, p1.x-20, p1.y+25);
-    // triangle(p1.x-25, p1.y+30, p1.x-10, p1.y+25, p1.x-25, p1.y+20);
-    // triangle(p1.x-30, p1.y+25, p1.x-25, p1.y+10, p1.x-20, p1.y+25);
-    // triangle(p1.x-25, p1.y+30, p1.x-40, p1.y+25, p1.x-25, p1.y+20);
+    // circle(p1.x, p1.y, 30);
+    triangle(p1.x-30, p1.y+25, p1.x-25, p1.y+40, p1.x-20, p1.y+25);
+    triangle(p1.x-25, p1.y+30, p1.x-10, p1.y+25, p1.x-25, p1.y+20);
+    triangle(p1.x-30, p1.y+25, p1.x-25, p1.y+10, p1.x-20, p1.y+25);
+    triangle(p1.x-25, p1.y+30, p1.x-40, p1.y+25, p1.x-25, p1.y+20);
 
     console.log(p1.x, p1.y);
     // console.log(p1.y);
