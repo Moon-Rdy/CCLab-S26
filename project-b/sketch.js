@@ -30,10 +30,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1400, 950, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
 
   video = createCapture(VIDEO);
-  video.size(1400, 950);
+  video.size(windowWidth, windowHeight);
   video.hide();
   handPose.detectStart(video, gotHands);
 
@@ -158,10 +158,10 @@ function detectHand() {
   if (
     stage == 0 &&
     preStage == 0 &&
-    p1.x > 280 &&
-    p1.x < 340 &&
-    p1.y > 430 &&
-    p1.y < 480
+    p1.x > width*0.2 &&
+    p1.x < width*0.24 &&
+    p1.y > height*.045 &&
+    p1.y < height*0.5
   ) {
     if (stage == 0 && preStage == 0) {
       stage = 1;
@@ -170,10 +170,10 @@ function detectHand() {
       sound1.play();
     }
   } else if (
-   p1.x > 240 &&
-    p1.x < 280 &&
-    p1.y > 450 &&
-    p1.y < 490
+   p1.x > width*0.17 &&
+    p1.x < width*0.2 &&
+    p1.y > height*0.47 &&
+    p1.y < height*0.51
   ) {
     if (stage == 1 && preStage == 1 && W.i == 100) {
       W.flip = -1 * W.flip;
@@ -182,7 +182,7 @@ function detectHand() {
       W.stage = 1.5;
       sound2.play();
     }
-  } else if (p1.x > 340 && p1.x < 390 && p1.y > 680 && p1.y < 750) {
+  } else if (p1.x > width*0.24 && p1.x < width*0.27 && p1.y > height*0.71 && p1.y < height*0.78) {
     if (stage == 1.5 && preStage == 1.5 && W.i == 180) {
       W.i = 400;
       stage = 2;
@@ -190,7 +190,7 @@ function detectHand() {
       T.stage = 2;
       sound3.play();
     }
-  } else if (p1.x > 1150 && p1.x < 1220 && p1.y > 350 && p1.y < 420) {
+  } else if (p1.x > width*0.82 && p1.x < width*0.87 && p1.y > height*0.36 && p1.y < height*0.44) {
     if (stage == 2 && preStage == 2 && W.i == 600) {
       W.i = 800;
       stage = 3;
