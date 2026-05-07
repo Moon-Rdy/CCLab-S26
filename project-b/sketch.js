@@ -15,7 +15,6 @@ let sound3;
 let sound4;
 
 function preload() {
-  handPose = ml5.handPose(options);
   font = loadFont(
     "https://cdnjs.cloudflare.com/ajax/libs/topcoat/0.8.0/font/SourceCodePro-Regular.otf"
   );
@@ -106,30 +105,30 @@ function draw() {
     text("Whatever, but I need to be home for dinner.", 0, 20);
     pop();
   }
-  // console.log(stage);
+  console.log(stage);
 
-  if (stage == 1 && preStage == 1 && !sound1.isplaying()) {
+  if (stage == 1 && preStage == 1 && !sound1.isPlaying()) {
     sound2.play();
     W.flip = -1 * W.flip;
     T.stage = 1.5;
     stage = 1.5;
     W.stage = 1.5;
   }
-  if (stage == 1.5 && preStage == 1.5 && !sound2.isplaying()) {
+  if (stage == 1.5 && preStage == 1.5 && !sound2.isPlaying()) {
     sound3.play();
     W.i = 400;
     stage = 2;
     W.stage = 2;
     T.stage = 2;
   }
-  if (stage == 2 && preStage == 2 && !sound3.isplaying()) {
+  if (stage == 2 && preStage == 2 && !sound3.isPlaying()) {
     sound4.play();
     W.i = 800;
     stage = 3;
     W.stage = 3;
     T.stage = 3;
   }
-  if (stage == 3 && preStage == 3 && !sound4.isplaying()) {
+  if (stage == 3 && preStage == 3 && !sound4.isPlaying()) {
     W.i = 0;
     stage = 0;
     W.stage = 0;
@@ -138,13 +137,6 @@ function draw() {
   }
 
   pop();
-
-  //test
-  // push();
-  // rotateX(PI / -2.5);
-  // fill(255, 0, 0);
-  // circle(250 , 170, 30);
-  // pop();
 }
 
 function mousePressed() {
@@ -156,55 +148,3 @@ function mousePressed() {
   }
 }
 
-// function detectHand() {
-//   if (
-//     stage == 0 &&
-//     preStage == 0 &&
-//     p1.x > width*0.2 &&
-//     p1.x < width*0.24 &&
-//     p1.y > height*.045 &&
-//     p1.y < height*0.5
-//   ) {
-//     if (stage == 0 && preStage == 0) {
-//       sound1.play();
-//       stage = 1;
-//       W.stage = 1;
-//       T.stage = 1;
-//     }
-//   } else if (
-//    p1.x > width*0.17 &&
-//     p1.x < width*0.2 &&
-//     p1.y > height*0.47 &&
-//     p1.y < height*0.51
-//   ) {
-//     if (stage == 1 && preStage == 1 && W.i == 100) {
-//       sound2.play();
-//       W.flip = -1 * W.flip;
-//       T.stage = 1.5;
-//       stage = 1.5;
-//       W.stage = 1.5;
-//     }
-//   } else if (p1.x > width*0.24 && p1.x < width*0.27 && p1.y > height*0.71 && p1.y < height*0.78) {
-//     if (stage == 1.5 && preStage == 1.5 && W.i == 180) {
-//       sound3.play();
-//       W.i = 400;
-//       stage = 2;
-//       W.stage = 2;
-//       T.stage = 2;
-//     }
-//   } else if (p1.x > width*0.82 && p1.x < width*0.87 && p1.y > height*0.36 && p1.y < height*0.44) {
-//     if (stage == 2 && preStage == 2 && W.i == 600) {
-//       sound4.play();
-//       W.i = 800;
-//       stage = 3;
-//       W.stage = 3;
-//       T.stage = 3;
-//     }
-//   } else if (preStage == 3 && W.i == 1000) {
-//     W.i = 0;
-//     stage = 0;
-//     W.stage = 0;
-//     preStage = 0;
-//     T.stage = 0;
-//   }
-// }
